@@ -1,0 +1,941 @@
+//
+// Sample CUPS printer driver info file for the PPD compiler.
+//
+
+Copyright "Copyright 2015 HiTi Digital, Inc. All Rights Reserved."
+
+
+////Copyright "Copyright 2008-2009 Apple Inc. All Rights Reserved.
+////IMPORTANT: This Apple software is supplied to you by Apple Inc.,
+////(\"Apple\") in consideration of your agreement to the following terms,
+////and your use, installation, modification or redistribution of this Apple
+////software constitutes acceptance of these terms.  If you do not agree with
+////these terms, please do not use, install, modify or redistribute this Apple
+////software.
+////
+////In consideration of your agreement to abide by the following terms, and
+////subject to these terms, Apple grants you a personal, non-exclusive
+////license, under Apple's copyrights in this original Apple software (the
+////\"Apple Software\"), to use, reproduce, modify and redistribute the Apple
+////Software, with or without modifications, in source and/or binary forms;
+////provided that if you redistribute the Apple Software in its entirety and
+////without modifications, you must retain this notice and the following text
+////and disclaimers in all such redistributions of the Apple Software.
+////Neither the name, trademarks, service marks or logos of Apple Inc.
+////may be used to endorse or promote products derived from the Apple
+////Software without specific prior written permission from Apple. Except as
+////expressly stated in this notice, no other rights or licenses, express or
+////implied, are granted by Apple herein, including but not limited to any
+////patent rights that may be infringed by your derivative works or by other
+////works in which the Apple Software may be incorporated.
+////
+////The Apple Software is provided by Apple on an \"AS IS\" basis.  APPLE MAKES
+////NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE
+////IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS FOR A
+////PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND OPERATION
+////ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+////
+////IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL OR
+////CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+////SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+////INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+////MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED AND
+////WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT
+////LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE POSSIBILITY
+////OF SUCH DAMAGE."
+
+// Include necessary files...
+//#include <font.defs>
+//#include <media.defs>
+#include <raster.defs>
+
+// Localization files for each supported language...
+//#po de /Library/Printers/Acme/SampleRaster.bundle/Contents/Resources/German.lproj/Localizable.strings
+//#po es /Library/Printers/Acme/SampleRaster.bundle/Contents/Resources/Spanish.lproj/Localizable.strings
+//#po fr /Library/Printers/Acme/SampleRaster.bundle/Contents/Resources/French.lproj/Localizable.strings
+//#po ja /Library/Printers/Acme/SampleRaster.bundle/Contents/Resources/Japanese.lproj/Localizable.strings
+
+// This driver info file only defines a single device that produces PGM or PPM files...
+////Font *
+////ManualCopies Yes
+////Manufacturer Acme
+////ModelName "Sample Raster"
+////ModelNumber 35
+////PCFileName "sample.ppd"
+////Version 2.1
+////Attribute Product "" "(Sample Raster)"
+////Attribute 1284DeviceID "" "MFG:Acme;MODEL:Sample Raster;"
+
+Manufacturer HiTi
+Version 1.3.6
+
+
+// Filters provided and commands supported by this driver...
+Attribute cupsFilter "" "application/vnd.cups-raster 100 /usr/lib/cups/filter/rastertohtrt"
+//Attribute cupsFilter "" "application/vnd.cups-raster 100 /Library/Printers/HiTi/RollType.bundle/Contents/MacOS/rastertohtrt"
+////Attribute cupsFilter "" "application/vnd.cups-raster 100 /Library/Printers/Acme/SampleRaster.bundle/Contents/MacOS/rastertosample"
+////Attribute cupsFilter "" "application/vnd.cups-command 100 /Library/Printers/Acme/SampleRaster.bundle/Contents/MacOS/commandtosample"
+////Attribute cupsCommands "" "ChangeInk Clean PrintSelfTestPage ReportLevels"
+
+// Icon for this printer
+//////Attribute APPrinterIconPath "" "/Library/Printers/Acme/SampleRaster.bundle/Contents/Resources/SampleRaster.icns"
+
+// Utility for this printer
+//////Attribute APPrinterUtilityPath "" "/Library/Printers/Acme/SampleUtility.app"
+////Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// PDE for this printer
+////Attribute APDialogExtension "" "/Library/Printers/Acme/SampleRasterPDE.bundle"
+
+// Help book and links to it...
+////Attribute APHelpBook "" "file:///Library/Printers/Acme/SampleRaster.bundle"
+////Attribute cupsIPPReason "com.sample-cyan-error/Cyan ink out!"
+////         "help:anchor=changingInk%20bookID=Sample%20Raster%20Help"
+////Attribute cupsIPPReason "com.sample-magenta-error/Magenta ink out!"
+////         "help:anchor=changingInk%20bookID=Sample%20Raster%20Help"
+////Attribute cupsIPPReason "com.sample-yellow-error/Yellow ink out!"
+////         "help:anchor=changingInk%20bookID=Sample%20Raster%20Help"
+////Attribute cupsIPPReason "com.sample-black-error/Black ink out!"
+////         "help:anchor=changingInk%20bookID=Sample%20Raster%20Help"
+
+// Map marker names to UI text...
+////Attribute cupsMarkerName "Cyan/Cyan Ink" ""
+////Attribute cupsMarkerName "Magenta/Magenta Ink" ""
+////Attribute cupsMarkerName "Yellow/Yellow Ink" ""
+////Attribute cupsMarkerName "Black/Black Ink" ""
+
+// Use ICC color matching via installed sRGB profile
+ColorDevice Yes
+////Attribute cupsICCProfile Gray../Grayscale "/System/Library/ColorSync/Profiles/Generic Gray Profile.icc"
+//////Attribute cupsICCProfile RGB../Color "/System/Library/ColorSync/Profiles/Generic RGB Profile.icc"
+
+// iPhoto/Preview printing presets
+////Attribute APPrinterPreset "Photo_on_Photo_Paper/Photo Printing on Glossy Paper"
+////                          "*MediaType Glossy *ColorModel RGB *Resolution 300dpi"
+////Attribute APPrinterPreset "Photo_on_Matte_Paper/Photo Printing on Matte Paper"
+////                          "*MediaType Matte *ColorModel RGB *Resolution 300dpi"
+
+// Constraints - don't allow plain paper printing at 300 DPI
+////UIConstraints "*MediaType Plain *Resolution 300dpi"
+////UIConstraints "*Resolution 300dpi *MediaType Plain"
+
+// Supported media sizes - Letter, A4, and custom
+////#media "P4x6/4 x 6" 442.57 297.61
+#media "P6x3.94/6 x 3.94" 442.57 291.85
+#media "P6x4/6 x 4" 442.57 297.61
+#media "P5x7/5 x 7" 371.53 513.61
+#media "P6x8/6 x 8" 442.57 584.17
+#media "P6x9/6 x 9" 442.57 657.61
+////#media "P6x9_2up/6x9 2UP" 442.57 598.09
+////#media "P4x6_2up/4x6 2UP" 442.57 298.57
+////#media "P5x7_2up/5x7 2UP" 371.53 525.12
+
+////2012.06.13
+#media "P6x4_split/6x4-Split" 442.57 299.53
+#media "P6x9_split/6x9/6x8-Split" 442.57 598.09
+#media "P5x7_2up/5x7-2UP" 371.53 257.29
+#media "P6x9_2up/6x9/6x8-2UP" 442.57 298.57
+
+//2015.01.08
+#media "P6x8_split/6x8-Split" 442.57 598.09
+#media "P6x8_2up/6x8-2UP" 442.57 298.57
+
+
+////2014.02.18 for P910L
+#media "P8X4/8 x 4" 591.37 296.65
+#media "P8X5/8 x 5" 591.37 368.65
+#media "P8X6/8 x 6" 591.37 440.65
+#media "P8X8/8 x 8" 591.37 584.65
+#media "P8X8_SPLIT_2UP/8x8 Split-2UP" 591.37 598.57
+#media "P8X10/8 x 10" 591.37 728.65
+#media "P8X10_SPLIT_2UP/8x10 Split-2UP" 591.37 742.57
+#media "P8X12/8 x 12" 591.37 872.65
+#media "P8X12_SPLIT_2UP/8x12 Split-2UP" 591.37 886.57
+#media "P8X12_SPLIT_3UP/8x12 Split-3UP" 591.37 900.49
+
+HWMargins 0 0 0 0
+////*MediaSize Letter
+////MediaSize A4
+//*MediaSize P4x6
+////*MediaSize P6x4
+////MediaSize P5x7
+////MediaSize P6x8
+////MediaSize P6x9
+////////MediaSize P6x9_2up
+
+////VariablePaperSize Yes
+////MinSize 2in 2in
+////MaxSize 12in 18in
+
+// Output mode - color or grayscale, default to color...
+Option "ColorModel/Output Mode" PickOne DocumentSetup 10
+////  Choice Gray "<</cupsColorSpace $CUPS_CSPACE_W/cupsColorOrder $CUPS_ORDER_CHUNKED/cupsBitsPerColor 8>>setpagedevice"
+  *Choice RGB "<</cupsColorSpace $CUPS_CSPACE_RGB/cupsColorOrder $CUPS_ORDER_CHUNKED/cupsBitsPerColor 8>>setpagedevice"
+////This line will cause cupsRasterOpen() fail ==> ColorModel RGB/Color rgb chunky 0
+
+// Media type - plain paper or two kinds of photo paper, default to glossy
+// photo paper.  When doing photo printing, request 16 bits per color...
+////Option "MediaType/Media Type" PickOne AnySetup 10
+////  Choice "Plain/Plain Paper" "<</MediaType(Plain)>>setpagedevice"
+////  Choice "Matte/Matte Photo Paper" "<</MediaType(Matte)/cupsPreferredBitsPerColor 16>>setpagedevice"
+////  *Choice "Glossy/Glossy Photo Paper" "<</MediaType(Glossy)/cupsPreferredBitsPerColor 16>>setpagedevice"
+
+// Output resolution - default to highest resolution...
+Option Resolution PickOne DocumentSetup 10
+////  Choice 72dpi "<</HWResolution[72 72]>>setpagedevice"
+////  Choice 100dpi "<</HWResolution[100 100]>>setpagedevice"
+  *Choice 300dpi "<</HWResolution[300 300]>>setpagedevice"
+
+//Option Group
+//Group "ColorPreference/Color Preference"
+
+// Constraints - when select None, do not apply other color settings
+////UIConstraints "*ColorPreference None *Brightness"
+////UIConstraints "*ColorPreference None *Contrast"
+////UIConstraints "*ColorPreference None *Saturation"
+////UIConstraints "*ColorPreference None *Cyan"
+////UIConstraints "*ColorPreference None *Magenta"
+////UIConstraints "*ColorPreference None *Yellow"
+////UIConstraints "*ColorPreference None *Sharpness"
+////UIConstraints "*ColorPreference None *Gamma"
+
+////Attribute cupsUIConstraints BrightnessOff "*ColorPreference None *Brightness"
+////Attribute cupsUIResolver BrightnessOff "*Brightness 0"
+////
+////Attribute cupsUIConstraints ContrastOff "*ColorPreference None *Contrast"
+////Attribute cupsUIResolver ContrastOff "*Contrast 0"
+////
+////Attribute cupsUIConstraints SaturationOff "*ColorPreference None *Saturation"
+////Attribute cupsUIResolver SaturationOff "*Saturation 0"
+////
+////Attribute cupsUIConstraints CyanOff "*ColorPreference None *Cyan"
+////Attribute cupsUIResolver CyanOff "*Cyan 0"
+////
+////Attribute cupsUIConstraints MagentaOff "*ColorPreference None *Magenta"
+////Attribute cupsUIResolver MagentaOff "*Magenta 0"
+////
+////Attribute cupsUIConstraints YellowOff "*ColorPreference None *Yellow"
+////Attribute cupsUIResolver YellowOff "*Yellow 0"
+
+
+//######################################################
+//######################################################
+{
+ModelName "P710L"
+PCFileName "HiTi P710L.ppd"
+ModelNumber 39
+
+Attribute Product "" "(HiTi P710L)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P710L;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x9
+MediaSize P6x9_split
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/P710L_Utility.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P710/HiTi P710L.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P710.icc"
+
+// Print Quality - default is Fine...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  Choice "0/Standard" ""
+  *Choice "1/Fine" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  Choice "ID/Passport/ID Color" ""
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp0.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P510S"
+PCFileName "HiTi P510S.ppd"
+ModelNumber 35
+
+Attribute Product "" "(HiTi P510S)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P510S;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x9
+MediaSize P6x4_split
+MediaSize P6x9_split
+MediaSize P5x7_2up
+MediaSize P6x9_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P510/HiTi P510S.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_Q.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_R.icc"
+
+// Print Quality - default is Standard...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  *Choice "0/Standard" ""
+  Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  Choice "ID/Passport/ID Color" ""
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P510K"
+PCFileName "HiTi P510K.ppd"
+ModelNumber 36
+
+Attribute Product "" "(HiTi P510K)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P510K;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x9
+MediaSize P6x4_split
+MediaSize P6x9_split
+MediaSize P5x7_2up
+MediaSize P6x9_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P510/HiTi P510S.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_Q.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_R.icc"
+
+// Print Quality - default is Standard...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  *Choice "0/Standard" ""
+  Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  Choice "ID/Passport/ID Color" ""
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P510Si"
+PCFileName "HiTi P510Si.ppd"
+ModelNumber 48
+
+Attribute Product "" "(HiTi P510Si)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P510Si;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x9
+MediaSize P6x4_split
+MediaSize P6x9_split
+MediaSize P5x7_2up
+MediaSize P6x9_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P510/HiTi P510S.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_Q.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_R.icc"
+
+// Print Quality - default is Standard...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  *Choice "0/Standard" ""
+  Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  Choice "ID/Passport/ID Color" ""
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P518S"
+PCFileName "HiTi P518S.ppd"
+ModelNumber 51
+
+Attribute Product "" "(HiTi P518S)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P518S;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x9
+MediaSize P6x4_split
+MediaSize P6x9_split
+MediaSize P5x7_2up
+MediaSize P6x9_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P510/HiTi P510S.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_Q.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_R.icc"
+
+// Print Quality - default is Standard...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  *Choice "0/Standard" ""
+  Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  Choice "ID/Passport/ID Color" ""
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P510L"
+PCFileName "HiTi P510L.ppd"
+ModelNumber 54
+
+Attribute Product "" "(HiTi P510L)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P510L;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x9
+MediaSize P6x4_split
+MediaSize P6x9_split
+MediaSize P5x7_2up
+MediaSize P6x9_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P510/HiTi P510S.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_Q.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_R.icc"
+
+// Print Quality - default is Standard...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  *Choice "0/Standard" ""
+  Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  Choice "ID/Passport/ID Color" ""
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P518A"
+PCFileName "HiTi P518A.ppd"
+ModelNumber 56
+
+Attribute Product "" "(HiTi P518A)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P518A;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x9
+MediaSize P6x4_split
+MediaSize P6x9_split
+MediaSize P5x7_2up
+MediaSize P6x9_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P510/HiTi P510S.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_Q.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P510_R.icc"
+
+// Print Quality - default is Standard...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  *Choice "0/Standard" ""
+  Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  Choice "ID/Passport/ID Color" ""
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P720L"
+PCFileName "HiTi P720L.ppd"
+ModelNumber 49
+
+Attribute Product "" "(HiTi P720L)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P720L;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x9
+MediaSize P6x4_split
+MediaSize P6x9_split
+MediaSize P5x7_2up
+MediaSize P6x9_2up
+
+// Utility for this printer
+////Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P720/HiTi P720L.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P720_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P720_Q.icc"
+
+// Print Quality - default is Fine...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  Choice "0/Standard" ""
+  *Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+//Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+//  *Choice "Classic/HiTi Classic Color" ""
+//  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P728L"
+PCFileName "HiTi P728L.ppd"
+ModelNumber 53
+
+Attribute Product "" "(HiTi P728L)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P728L;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x9
+MediaSize P6x4_split
+MediaSize P6x9_split
+MediaSize P5x7_2up
+MediaSize P6x9_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P720/HiTi P720L.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P720_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P720_Q.icc"
+
+// Print Quality - default is Fine...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  Choice "0/Standard" ""
+  *Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+
+//######################################################
+{
+ModelName "P910L"
+PCFileName "HiTi P910L.ppd"
+ModelNumber 71
+
+Attribute Product "" "(HiTi P910L)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:HiTi P910L;"
+
+*MediaSize P8X4
+MediaSize P8X5
+MediaSize P8X6
+MediaSize P8X8
+MediaSize P8X8_SPLIT_2UP
+MediaSize P8X10
+MediaSize P8X10_SPLIT_2UP
+MediaSize P8X12
+MediaSize P8X12_SPLIT_2UP
+MediaSize P8X12_SPLIT_3UP
+
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/P910L_Utility.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P910/HiTi P910L.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P720_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P720_Q.icc"
+
+// Print Quality - default is Fine...
+//Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+//  Choice "0/Standard" ""
+//  *Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P750L"
+PCFileName "HiTi P750L.ppd"
+ModelNumber 67
+
+Attribute Product "" "(HiTi P750L)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:P750L;"
+
+*MediaSize P6x4
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x4_split
+MediaSize P6x8_split
+MediaSize P5x7_2up
+MediaSize P6x8_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P750/HiTi P750L.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P750_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P750_Q.icc"
+
+// Print Quality - default is Fine...
+Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+  Choice "0/Standard" ""
+  *Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P520L"
+PCFileName "HiTi P520L.ppd"
+ModelNumber 68
+
+Attribute Product "" "(HiTi P520L)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:P520L;"
+
+*MediaSize P6x4
+MediaSize P6x3.94
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x4_split
+MediaSize P6x8_split
+MediaSize P5x7_2up
+MediaSize P6x8_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P520/HiTi P520L.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P520_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P520_Q.icc"
+
+// Print Quality - default is Fine...
+//Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+//  Choice "0/Standard" ""
+//  *Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P525L"
+PCFileName "HiTi P525L.ppd"
+ModelNumber 68
+
+Attribute Product "" "(HiTi P525L)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:P525L;"
+
+*MediaSize P6x4
+MediaSize P6x3.94
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x4_split
+MediaSize P6x8_split
+MediaSize P5x7_2up
+MediaSize P6x8_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P520/HiTi P520L.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P520_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P520_Q.icc"
+
+// Print Quality - default is Fine...
+//Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+//  Choice "0/Standard" ""
+//  *Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}
+
+//######################################################
+{
+ModelName "P525"
+PCFileName "HiTi P525.ppd"
+ModelNumber 91
+
+Attribute Product "" "(HiTi P525)"
+Attribute 1284DeviceID "" "MFG:HiTi;MDL:P525;"
+
+*MediaSize P6x4
+MediaSize P6x3.94
+MediaSize P5x7
+MediaSize P6x8
+MediaSize P6x4_split
+MediaSize P6x8_split
+MediaSize P5x7_2up
+MediaSize P6x8_2up
+
+// Utility for this printer
+//Attribute APPrinterUtilityPath "" "/Library/Printers/HiTi/Utility/SetupUtilityRT.app"
+
+// Icon for this printer
+//Attribute APPrinterIconPath "" "/Library/Printers/HiTi/Resource/P520/HiTi P520L.icns"
+
+// Use ICC color matching via installed sRGB profile
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P520_K.icc"
+//Attribute cupsICCProfile RGB../Color "/Library/Printers/HiTi/Profiles/HiTi P520_Q.icc"
+
+// Print Quality - default is Fine...
+//Option "PrintQuality/Print Quality" PickOne DocumentSetup 21
+//  Choice "0/Standard" ""
+//  *Choice "1/Fine" ""
+
+// Enable matte - default is false...
+Option "EnableMatte/Enable matte" PickOne DocumentSetup 22
+  *Choice "0/No" ""
+  Choice "1/Yes" ""
+
+//----------------------------------------------
+Group "ColorOption/Color Options"
+
+// Color Preference - default is Classic...
+Option "ColorPreference/Color Preference" PickOne DocumentSetup 20
+  *Choice "Classic/HiTi Classic Color" ""
+  Choice "None/Do not use color preference setting" ""
+
+#include "ColorOption_sharp50.defs"
+#include "ColorOption_basic.defs"
+
+}

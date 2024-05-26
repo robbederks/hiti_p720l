@@ -1,0 +1,18 @@
+Driver Installation and Uninstallation
+
+Uninstall Driver:
+1. Go to Finder > Application > Utilities > Printer Setup Utility.
+2. Select the printer then click ．Delete・.
+3. Go to Finder > Library > Printers. 
+4. Delete ．HiTi・ folder.
+5. Restart printer.
+
+Install new driver:
+1. Before installing the driver, please unplug or power off the printer. 
+2. Double click ．HiTiRollTypePrinterDriver_x.x.x.dmg・. 
+3. Get into folder and double click ．x.x.x.pkg・.
+4. Type your Name and Password or Phrase for authorization of installer.
+5. Click ．Continue・ then ．Install・. 
+6. Click ．Close・ after seeing ．The Installation Was Successful・.
+7. Connect your printer to Mac via USB port and power on the printer. 
+Installation completed. 
