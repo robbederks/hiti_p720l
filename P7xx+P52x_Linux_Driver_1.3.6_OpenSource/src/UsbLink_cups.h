@@ -16,6 +16,7 @@
 #include "Util0.h"
 
 #include <cups/cups.h>
+#include <cups/sidechannel.h>
 
 #define LOG_BUF_LEN				1024
 
@@ -197,28 +198,28 @@ public:
 							dwBytesWritten = fwrite(lpTmp, 1, dwWriteLen, stdout);
 							fflush(stdout);
 							LOG_STRING(2, _T("CUsbLink::WriteData:: fwrite(), dwWriteLen = %d, dwBytesWritten = %d,\n"), dwWriteLen, dwBytesWritten);
-	
+
 							if ( dwBytesWritten < 0 )
 							{
 								LOG_STRING(1, _T("CUsbLink::WriteData:: write() return -1, errno = %d,\n"), errno);//ENODEV=19
 								return 0x1A;
 							}
-	
+
 							if ( dwBytesWritten == dwWriteLen )
 								byRet = 0x10;
 							else if ( dwWriteLen != 0 && dwBytesWritten == 0 )
 								byRet = 0x17;
 							else if ( dwWriteLen != 0 && dwWriteLen != dwBytesWritten )
 								byRet = 0x18;
-	
+
 							lpTmp += dwBytesWritten;
-	
+
 							dwBytesToWrite -= dwBytesWritten;
 							*lpdwWriteAmount += dwBytesWritten;
-	
+
 							if ( dwBytesWritten == 0 && (byRet != 0x10 && byRet != 0x18) )
 								break;
-	
+
 							if ( m_dwDelayUsb )
 								Sleep(m_dwDelayUsb);
 						}//end if ( FD_ISSET(fd, &writefds) )
@@ -311,7 +312,7 @@ MYTRACE(_T("CUsbLink::WriteData(), dwLen = %d, dwSize = %d, *lpdwWriteAmount = %
 					unsigned long		dwWritten = 0,
 										dwRead = 0;
 
-					
+
 					m_dwModelSN = 0;
 
 					byRet = WriteData(lpCmd, 6, &dwWritten);
@@ -345,7 +346,7 @@ MYTRACE(_T("CUsbLink::WriteData(), dwLen = %d, dwSize = %d, *lpdwWriteAmount = %
 
 					//if ( dwVidPid == 0x0D160009 )
 					//	m_dwModelSN = USBMODEL_P720L;
-			
+
 
 
 					return dwVidPid;
